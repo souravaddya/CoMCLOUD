@@ -13,9 +13,9 @@ public class Edge extends Node
 {
     private double pheromone;
     
-    private Node startvertex;
+    public Vertex startvertex;
     
-    private Node endvertex;
+    public Vertex endvertex;
     
     public Edge(String name) 
     {
@@ -30,13 +30,13 @@ public class Edge extends Node
     }
     
     
-    public void setstartvertex(Node n)
+    public void setstartvertex(Vertex n)
     {
         this.startvertex = n;
     }
     
     
-    public void setendvertex(Node n)
+    public void setendvertex(Vertex n)
     {
         this.endvertex = n;
     }
@@ -45,6 +45,16 @@ public class Edge extends Node
     public Node getstratvertex()
     {
         return this.startvertex;
+    }
+    
+    public int startvertexvmid()
+    {
+        return this.startvertex.getvmId();
+    }
+    
+    public int startvertexdcId()
+    {
+        return this.startvertex.getdcId();
     }
     
     public Node getendvertex()

@@ -193,6 +193,7 @@ public class CoMCLOUD_V1 {
       }
      
      Antcolonyoptimization a = new Antcolonyoptimization(SP_List, MT_List, no_of_apps);
+     a.run();
      
      
         // create the cloudlet list

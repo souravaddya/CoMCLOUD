@@ -19,12 +19,12 @@ public class Vertex extends Node implements Iterable<Edge>
     private HashMap<Integer, Edge> hashMap = new HashMap<>();
     
     
-    private ArrayList<Edge> list;
+    public ArrayList<Edge> Edgelist;
     
-    int vmId; 
+    public int vmId; 
     
     // Stores the DC id corresponding to the node.
-    int dcId;
+    public int dcId;
     
     public Vertex(String name, int vmid, int dcid) 
     {
@@ -34,21 +34,23 @@ public class Vertex extends Node implements Iterable<Edge>
         this.dcId = dcid;
         
         hashMap = new HashMap<>();
-        list = new ArrayList<>();
+        Edgelist = new ArrayList<>();
     }
    
-    public void addEdge (Node n) 
+    public void addEdge (Vertex v, Node n) 
     {
         if (n instanceof Vertex)
         {
             Edge e = new Edge(n.getname());
             hashMap.put(e.hashCode(), e);
-            list.add(e);
+            Edgelist.add(e);
+            e.setstartvertex(v);
+            e.setendvertex((Vertex) n);
         }
         else 
         {
             hashMap.put(n.hashCode(), (Edge)n);
-            list.add((Edge)n);
+            Edgelist.add((Edge)n);
         }
     }
     
@@ -80,7 +82,7 @@ public class Vertex extends Node implements Iterable<Edge>
     @Override
     public Iterator<Edge> iterator() 
     {
-        return list.iterator();
+        return Edgelist.iterator();
         //throw new UnsupportedOperationException("Not supported yet."); 
         //To change body of generated methods, choose Tools | Templates.
     }

@@ -17,10 +17,10 @@ public class Graph implements Iterable<Vertex>
 {
     private HashMap<Integer, Vertex> hashMap;
     
-    private ArrayList<Vertex> list;
-    private int totalEdges;
-    private int alpha, beta;
-    private double evaporationRate;
+    public ArrayList<Vertex> list;
+    public int totalEdges;
+    public int alpha, beta;
+    public double evaporationRate;
     
     public Graph (double evaporationRate, int alpha, int beta) 
     {
@@ -43,7 +43,7 @@ public class Graph implements Iterable<Vertex>
     
     public void addEdge (Vertex vertex, Node node) 
     {
-        vertex.addEdge(node);
+        vertex.addEdge(vertex, node);
         totalEdges++;
     }
 
@@ -56,6 +56,19 @@ public class Graph implements Iterable<Vertex>
             nodes[i++] = v;
         }
         return nodes;
+    }
+    
+    public ArrayList <Vertex> getvertices()
+    {
+         //Vertex[] list = new Vertex[getTotalVertices()];
+         //int i = 0;
+         
+         for(Vertex v : this) 
+        {
+            list.add(v);
+            //list[i++] = v;
+        }
+            return list;    
     }
     
     /*public void updatePheromone(Ant ant) 
@@ -130,6 +143,12 @@ public class Graph implements Iterable<Vertex>
         return hashMap.isEmpty();
     }
     
+    /*@Override
+    public Iterator<Vertex> iterator() 
+    {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }*/
+
     @Override
     public Iterator<Vertex> iterator() 
     {

@@ -58,6 +58,8 @@ public class Antcolonyoptimization
             {
                 Antcolonyevaluation acoeval = 
                 new Antcolonyevaluation (ants, gen, evap, alpha, beta, SP_List.get(j), MT.get(i));
+                acoeval.displaygraph();
+                break;
             }
                 
         }
